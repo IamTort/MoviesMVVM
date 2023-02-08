@@ -67,8 +67,7 @@ final class MoviesViewModel: MoviesViewModelProtocol {
                 self.films = result.filmsInfo
                 self.moviesPageInfo = result.pageCount
                 self.listStateHandler?(.success)
-            case let .failure(error):
-                print(error.localizedDescription)
+            case .failure:
                 self.listStateHandler?(.failure)
             }
         }
@@ -85,8 +84,7 @@ final class MoviesViewModel: MoviesViewModelProtocol {
             case let .success(result):
                 self.films += result.filmsInfo
                 self.listStateHandler?(.success)
-            case let .failure(error):
-                print(error.localizedDescription)
+            case .failure:
                 self.listStateHandler?(.failure)
             }
         }
@@ -107,10 +105,10 @@ final class MoviesViewModel: MoviesViewModelProtocol {
         }
         self.category = category
         listStateHandler?(.loading)
-        fetch(api: category)
+        fetchMoviesNewCategory(api: category)
     }
 
-    func fetch(api: PurchaseEndPoint) {
+    func fetchMoviesNewCategory(api: PurchaseEndPoint) {
         networkService.loadFilms(page: 1, api: api) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -119,8 +117,7 @@ final class MoviesViewModel: MoviesViewModelProtocol {
                 self.films = movies.filmsInfo
                 self.scrollViewData?()
                 self.listStateHandler?(.success)
-            case let .failure(error):
-                print(error.localizedDescription)
+            case .failure:
                 self.listStateHandler?(.failure)
             }
         }

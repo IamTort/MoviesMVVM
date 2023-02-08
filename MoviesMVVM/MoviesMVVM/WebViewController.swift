@@ -68,7 +68,9 @@ final class WebViewController: UIViewController {
                     self.webView.load(URLRequest(url: url))
                 }
             case let .failure(error):
-                self.showErrorAlert(title: Constants.errorString, message: error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.showErrorAlert(title: Constants.errorString, message: error.localizedDescription)
+                }
             }
         }
     }
