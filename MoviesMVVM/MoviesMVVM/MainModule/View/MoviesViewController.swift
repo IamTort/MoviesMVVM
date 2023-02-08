@@ -110,7 +110,8 @@ final class MoviesViewController: UIViewController {
 
     private func updateView() {
         moviesViewModel?.listStateHandler = { [weak self] state in
-            self?.movieListState = state
+            guard let self = self else { return }
+            self.movieListState = state
         }
     }
 
@@ -123,7 +124,8 @@ final class MoviesViewController: UIViewController {
     }
 
     private func alertView() {
-        moviesViewModel?.alertData = { alert in
+        moviesViewModel?.alertData = { [weak self] alert in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.showErrorAlert(title: Constants.errorTitle, message: alert)
             }

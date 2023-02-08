@@ -198,7 +198,8 @@ final class FilmViewController: UIViewController {
     }
 
     private func alertView() {
-        filmViewModel?.alertData = { alert in
+        filmViewModel?.alertData = { [weak self] alert in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.showErrorAlert(title: Constants.errorString, message: alert)
             }
@@ -206,7 +207,8 @@ final class FilmViewController: UIViewController {
     }
 
     private func makeImageView() {
-        filmViewModel?.imageData = { imageData in
+        filmViewModel?.imageData = { [weak self] imageData in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.filmImageView.image = UIImage(data: imageData)
             }
