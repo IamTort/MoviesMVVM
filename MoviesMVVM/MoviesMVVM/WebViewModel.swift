@@ -3,15 +3,8 @@
 
 import Foundation
 
-protocol WebViewModelProtocol {
-    var filmIndex: Int? { get set }
-    var dismiss: VoidHandler? { get set }
-    var loadWebView: ((URL) -> ())? { get set }
-    var alertData: StringHandler? { get set }
-    func loadWebViewData()
-}
-
-final class WebViewModel {
+/// Вью модель экрана вебвью
+final class WebViewModel: WebViewModelProtocol {
     // MARK: - Private Enum
 
     private enum Constants {
