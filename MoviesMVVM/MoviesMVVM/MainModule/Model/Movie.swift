@@ -3,23 +3,17 @@
 
 import Foundation
 
-/// Массив с фильмами
-struct Result: Decodable {
-    let filmsInfo: [Movie]
-    let pageCount: Int
-
-    enum CodingKeys: String, CodingKey {
-        case filmsInfo = "results"
-        case pageCount = "total_pages"
-    }
-}
-
 /// Модель фильма
 struct Movie: Decodable {
+    /// Название фильма
     let title: String
+    /// Идентификатор фильма
     let id: Int
+    /// Описание фильма
     let overview: String
+    /// Ссылка на постер фильма
     let poster: String
+    /// Рейтинг фильма
     let rate: Double
 
     enum CodingKeys: String, CodingKey {

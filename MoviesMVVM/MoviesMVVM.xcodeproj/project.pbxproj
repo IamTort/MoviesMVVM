@@ -28,6 +28,8 @@
 		FABE053629930789006EEB88 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE053529930789006EEB88 /* UIViewController+Extension.swift */; };
 		FABE053A29931945006EEB88 /* MoviesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE053929931945006EEB88 /* MoviesViewModelProtocol.swift */; };
 		FABE054029931E17006EEB88 /* FilmViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE053F29931E17006EEB88 /* FilmViewModelProtocol.swift */; };
+		FABE054229938864006EEB88 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE054129938864006EEB88 /* Result.swift */; };
+		FABE0544299388D8006EEB88 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE0543299388D8006EEB88 /* Genres.swift */; };
 		FAD4440C2906E5AF006E71AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440B2906E5AF006E71AF /* AppDelegate.swift */; };
 		FAD4440E2906E5AF006E71AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440D2906E5AF006E71AF /* SceneDelegate.swift */; };
 		FAD444102906E5AF006E71AF /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440F2906E5AF006E71AF /* MoviesViewController.swift */; };
@@ -67,6 +69,8 @@
 		FABE053529930789006EEB88 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		FABE053929931945006EEB88 /* MoviesViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModelProtocol.swift; sourceTree = "<group>"; };
 		FABE053F29931E17006EEB88 /* FilmViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModelProtocol.swift; sourceTree = "<group>"; };
+		FABE054129938864006EEB88 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FABE0543299388D8006EEB88 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		FAD444082906E5AF006E71AF /* MoviesMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD4440B2906E5AF006E71AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD4440D2906E5AF006E71AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,7 +257,9 @@
 			isa = PBXGroup;
 			children = (
 				FAD444222907234E006E71AF /* Movie.swift */,
+				FABE054129938864006EEB88 /* Result.swift */,
 				FAD4442E290A9B55006E71AF /* Film.swift */,
+				FABE0543299388D8006EEB88 /* Genres.swift */,
 				FAD44432290B28E4006E71AF /* VideoId.swift */,
 			);
 			path = Model;
@@ -360,7 +366,7 @@
 		FAD444212906EA7E006E71AF /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -372,7 +378,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
@@ -397,7 +403,9 @@
 				FABE053629930789006EEB88 /* UIViewController+Extension.swift in Sources */,
 				FAD4442B2907C77C006E71AF /* UIImageView + Extension.swift in Sources */,
 				FAD4442529072486006E71AF /* NetworkService.swift in Sources */,
+				FABE054229938864006EEB88 /* Result.swift in Sources */,
 				FABE052B29929C66006EEB88 /* AssemblyBuilderProtocol.swift in Sources */,
+				FABE0544299388D8006EEB88 /* Genres.swift in Sources */,
 				FABE050E29919244006EEB88 /* ImageAPIServiceProtocol.swift in Sources */,
 				FAD44429290735B3006E71AF /* FilmTableViewCell.swift in Sources */,
 				FABE0515299194F8006EEB88 /* FileManagerServiceProtocol.swift in Sources */,
