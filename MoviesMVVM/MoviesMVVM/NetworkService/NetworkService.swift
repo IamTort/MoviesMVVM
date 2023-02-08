@@ -1,5 +1,5 @@
 // NetworkService.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © PozolotinaAA. All rights reserved.
 
 import Foundation
 
@@ -41,7 +41,7 @@ final class NetworkService: NetworkServiceProtocol {
 
     private var category = PurchaseEndPoint.popular
 
-    private lazy var session: URLSession = {
+    private var session: URLSession = {
         let session = URLSession(configuration: .default)
         return session
     }()

@@ -1,5 +1,5 @@
 // FilmViewController.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © PozolotinaAA. All rights reserved.
 
 import UIKit
 
@@ -158,7 +158,7 @@ final class FilmViewController: UIViewController {
     // MARK: - Public property
 
     weak var coordinator: MainCoordinator?
-    var filmIndex: Int?
+//    var filmIndex: Int?
 
     // MARK: - Private property
 
@@ -181,32 +181,27 @@ final class FilmViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         filmViewModel?.loadFilmData()
-        updateTableView()
-        alertView()
-        makeImageView()
+        bind()
     }
 
     // MARK: - Private methods
 
-    private func updateTableView() {
-        filmViewModel?.updateViewData = {
-            guard let film = self.filmViewModel?.filmInfo else { return }
+    private func bind() {
+        filmViewModel?.updateViewData = { [weak self] in
+            guard let self = self,
+                  let film = self.filmViewModel?.filmInfo else { return }
             DispatchQueue.main.async {
                 self.setupData(data: film)
             }
         }
-    }
-
-    private func alertView() {
+   
         filmViewModel?.alertData = { [weak self] alert in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.showErrorAlert(title: Constants.errorString, message: alert)
             }
         }
-    }
-
-    private func makeImageView() {
+    
         filmViewModel?.imageData = { [weak self] imageData in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -318,7 +313,8 @@ final class FilmViewController: UIViewController {
 
     @objc private func goWebViewAction() {
         let fvc = WebViewController()
-        fvc.filmIndex = filmIndex
+        fvc.webViewModel = WebViewModel() as? WebViewModelProtocol
+        fvc.webViewModel?.filmIndex = filmViewModel?.filmInfo?.id
         present(fvc, animated: true)
     }
 }

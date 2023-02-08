@@ -30,6 +30,8 @@
 		FABE054029931E17006EEB88 /* FilmViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE053F29931E17006EEB88 /* FilmViewModelProtocol.swift */; };
 		FABE054229938864006EEB88 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE054129938864006EEB88 /* Result.swift */; };
 		FABE0544299388D8006EEB88 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE0543299388D8006EEB88 /* Genres.swift */; };
+		FABE05462993B9D8006EEB88 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE05452993B9D8006EEB88 /* Typealias.swift */; };
+		FABE05482993BBF8006EEB88 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE05472993BBF8006EEB88 /* WebViewModel.swift */; };
 		FAD4440C2906E5AF006E71AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440B2906E5AF006E71AF /* AppDelegate.swift */; };
 		FAD4440E2906E5AF006E71AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440D2906E5AF006E71AF /* SceneDelegate.swift */; };
 		FAD444102906E5AF006E71AF /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440F2906E5AF006E71AF /* MoviesViewController.swift */; };
@@ -71,6 +73,8 @@
 		FABE053F29931E17006EEB88 /* FilmViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModelProtocol.swift; sourceTree = "<group>"; };
 		FABE054129938864006EEB88 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FABE0543299388D8006EEB88 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		FABE05452993B9D8006EEB88 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		FABE05472993BBF8006EEB88 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		FAD444082906E5AF006E71AF /* MoviesMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD4440B2906E5AF006E71AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD4440D2906E5AF006E71AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				FAD444162906E5B1006E71AF /* LaunchScreen.storyboard */,
 				FAD444192906E5B1006E71AF /* Info.plist */,
 				FAD44430290B1407006E71AF /* WebViewController.swift */,
+				FABE05472993BBF8006EEB88 /* WebViewModel.swift */,
 				FABE053B29931BEB006EEB88 /* DetailModule */,
 				FABE053E29931C2B006EEB88 /* NetworkService */,
 				FABE053729930CE9006EEB88 /* MainModule */,
@@ -271,6 +276,7 @@
 				FAD44454290FB6B8006E71AF /* NSMutableAttributedString + Extension.swift */,
 				FAD4442A2907C77C006E71AF /* UIImageView + Extension.swift */,
 				FABE053529930789006EEB88 /* UIViewController+Extension.swift */,
+				FABE05452993B9D8006EEB88 /* Typealias.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -399,9 +405,11 @@
 				FABE052D29929EB8006EEB88 /* NetworkServiceProtocol.swift in Sources */,
 				FABE050C29918FDB006EEB88 /* ImageAPIService.swift in Sources */,
 				FAD4442D2909743E006E71AF /* FilmViewController.swift in Sources */,
+				FABE05462993B9D8006EEB88 /* Typealias.swift in Sources */,
 				FAD44431290B1407006E71AF /* WebViewController.swift in Sources */,
 				FABE053629930789006EEB88 /* UIViewController+Extension.swift in Sources */,
 				FAD4442B2907C77C006E71AF /* UIImageView + Extension.swift in Sources */,
+				FABE05482993BBF8006EEB88 /* WebViewModel.swift in Sources */,
 				FAD4442529072486006E71AF /* NetworkService.swift in Sources */,
 				FABE054229938864006EEB88 /* Result.swift in Sources */,
 				FABE052B29929C66006EEB88 /* AssemblyBuilderProtocol.swift in Sources */,

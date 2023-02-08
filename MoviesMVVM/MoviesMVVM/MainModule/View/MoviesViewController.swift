@@ -1,9 +1,7 @@
 // MoviesViewController.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © PozolotinaAA. All rights reserved.
 
 import UIKit
-
-typealias StringHandler = (String) -> Void
 
 ///  Контроллер экрана Фильмы
 final class MoviesViewController: UIViewController {
@@ -17,8 +15,6 @@ final class MoviesViewController: UIViewController {
         static let chevronLeftImageName = "chevron.left"
         static let chevronRightImageName = "chevron.right"
         static let movies = "Фильмы"
-        static let keyValue = "a5b0bb6ebe58602d88ccf2463076122b"
-        static let key = "apiKey"
         static let errorTitle = "Error"
     }
 
@@ -83,7 +79,7 @@ final class MoviesViewController: UIViewController {
             activityIndicatorView.isHidden = true
             activityIndicatorView.stopAnimating()
             tableView.isHidden = false
-            updateTableView()
+            tableView.reloadData()
         case .failure:
             alertView()
         }
@@ -102,32 +98,25 @@ final class MoviesViewController: UIViewController {
 
     // MARK: - Private methods
 
-    private func updateTableView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-
-    private func updateView() {
-        moviesViewModel?.listStateHandler = { [weak self] state in
-            guard let self = self else { return }
-            self.movieListState = state
-        }
-    }
-
-    private func scrollTableView() {
-        moviesViewModel?.scrollViewData = {
-            DispatchQueue.main.async {
-                self.tableView.setContentOffset(.zero, animated: true)
-            }
-        }
-    }
-
     private func alertView() {
         moviesViewModel?.alertData = { [weak self] alert in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.showErrorAlert(title: Constants.errorTitle, message: alert)
+            }
+        }
+    }
+    
+    private func bind() {
+        moviesViewModel?.listStateHandler = { [weak self] state in
+            guard let self = self else { return }
+            self.movieListState = state
+        }
+        
+        moviesViewModel?.scrollViewData = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.tableView.setContentOffset(.zero, animated: true)
             }
         }
     }
@@ -141,8 +130,9 @@ final class MoviesViewController: UIViewController {
         view.addSubview(segmentedControl)
         view.addSubview(activityIndicatorView)
         createConstraint()
-        scrollTableView()
-        updateView()
+//        scrollTableView()
+//        updateView()
+        bind()
     }
 
     private func createConstraint() {

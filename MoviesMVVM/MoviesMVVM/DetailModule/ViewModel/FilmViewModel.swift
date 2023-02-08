@@ -1,5 +1,5 @@
 // FilmViewModel.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © PozolotinaAA. All rights reserved.
 
 import Foundation
 
@@ -7,12 +7,12 @@ import Foundation
 final class FilmViewModel: FilmViewModelProtocol {
     // MARK: - Public property
 
-    let networkService: NetworkServiceProtocol
-    let imageService: ImageServiceProtocol
+    private let networkService: NetworkServiceProtocol
+    private let imageService: ImageServiceProtocol
     var filmIndex: Int?
     var filmInfo: Film?
     var updateViewData: VoidHandler?
-    var imageData: ((Data) -> ())?
+    var imageData: DataHandler?
     var alertData: StringHandler?
 
     // MARK: - Initializer

@@ -1,5 +1,5 @@
 // MoviesViewModel.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © PozolotinaAA. All rights reserved.
 
 import Foundation
 
@@ -10,9 +10,6 @@ enum MoviesState {
     case success
     case failure
 }
-
-typealias IntHandler = (Int) -> Void
-typealias VoidHandler = () -> ()
 
 /// Модель экрана фильмов
 final class MoviesViewModel: MoviesViewModelProtocol {
@@ -31,8 +28,6 @@ final class MoviesViewModel: MoviesViewModelProtocol {
 
     // MARK: - Public property
 
-    let networkService: NetworkServiceProtocol
-    let imageService: ImageServiceProtocol
     var coordinator: MainCoordinator?
     var updateViewData: VoidHandler?
     var scrollViewData: VoidHandler?
@@ -43,6 +38,8 @@ final class MoviesViewModel: MoviesViewModelProtocol {
 
     // MARK: - Private property
 
+    private let networkService: NetworkServiceProtocol
+    private let imageService: ImageServiceProtocol
     private var moviesPageInfo: Int?
     private var page = 1
     private var category = PurchaseEndPoint.popular
