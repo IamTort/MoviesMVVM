@@ -1,4 +1,4 @@
-// Service.swift
+// NetworkService.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
@@ -12,10 +12,8 @@ enum PurchaseEndPoint: String {
 }
 
 /// Класс, отвечающий за загрузку даннных с сервера
-final class Service {
+final class NetworkService: NetworkServiceProtocol {
     // MARK: - Private Enum
-
-    static let shared = Service()
 
     private enum Constants {
         static let queryItemKeyName = "api_key"
@@ -29,26 +27,32 @@ final class Service {
         static let videos = "/videos"
     }
 
-    private lazy var session: URLSession = {
-        let session = URLSession(configuration: .default)
-        return session
-    }()
+    // MARK: - Private property
 
     private let queryItemKey = URLQueryItem(
         name: Constants.queryItemKeyName,
         value: UserDefaults.standard.string(forKey: Constants.apiValueKeyName)
     )
+
     private let queryItemLanguage = URLQueryItem(
         name: Constants.queryItemLanguageName,
         value: Constants.queryItemLanguageValue
     )
+
     private var category = PurchaseEndPoint.popular
 
-    func loadFilms(page: Int, completion: @escaping (Result) -> Void) {
+    private lazy var session: URLSession = {
+        let session = URLSession(configuration: .default)
+        return session
+    }()
+
+    // MARK: - Public methods
+
+    func loadFilms(page: Int, completion: @escaping (Swift.Result<Result, Error>) -> Void) {
         loadFilms(page: page, api: category, completion: completion)
     }
 
-    func loadFilms(page: Int, api: PurchaseEndPoint, completion: @escaping (Result) -> Void) {
+    func loadFilms(page: Int, api: PurchaseEndPoint, completion: @escaping (Swift.Result<Result, Error>) -> Void) {
         category = api
 
         let queryItemPage = URLQueryItem(name: Constants.queryItemPageName, value: "\(page)")
@@ -62,7 +66,7 @@ final class Service {
         loadObject(urlComponents: components, completion: completion)
     }
 
-    func loadFilm(index: Int, completion: @escaping (Film) -> Void) {
+    func loadFilm(index: Int, completion: @escaping (Swift.Result<Film, Error>) -> Void) {
         var components = URLComponents()
         components.scheme = Constants.componentScheme
         components.host = Constants.componentsHost
@@ -72,31 +76,28 @@ final class Service {
         loadObject(urlComponents: components, completion: completion)
     }
 
-    func loadVideos(index: Int, completion: @escaping ([VideoId]) -> Void) {
+    func loadVideos(index: Int, completion: @escaping (Swift.Result<[VideoId], Error>) -> Void) {
         var components = URLComponents()
         components.scheme = Constants.componentScheme
         components.host = Constants.componentsHost
         components.path = Constants.componentsPath + "\(index)" + Constants.videos
         components.queryItems = [queryItemKey, queryItemLanguage]
 
-        loadObject(urlComponents: components, completion: ({ (m1: ResultVideos) in
-            completion(m1.results)
-        }))
+        loadObject(urlComponents: components, completion: completion)
     }
 
     func loadObject<ResponseType: Decodable>(
         urlComponents: URLComponents,
-        completion: @escaping (ResponseType) -> Void
+        completion: @escaping (Swift.Result<ResponseType, Error>) -> Void
     ) {
         guard let url = urlComponents.url else { return }
-        let task = session.dataTask(with: url) { data, _, _ in
+        let task = session.dataTask(with: url) { data, _, error in
             guard let data = data else { return }
             do {
                 let result = try JSONDecoder().decode(ResponseType.self, from: data)
-//                guard let res = result else { return }
-                completion(result)
+                completion(.success(result))
             } catch {
-                print(error)
+                completion(.failure(error))
             }
         }
         task.resume()

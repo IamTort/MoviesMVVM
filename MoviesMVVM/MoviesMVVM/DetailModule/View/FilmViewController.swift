@@ -16,10 +16,11 @@ final class FilmViewController: UIViewController {
         static let rightImageName = "right"
         static let trailerLabelText = "Посмотреть трейлер"
         static let trailerLabelFont = "Avenir-Medium"
-        static let dot = " \u{2022} "
-        static let imdbFullRate = "/10 IMDb"
-        static let hours = "ч"
-        static let minutes = "мин"
+        static let dotChar = " \u{2022} "
+        static let imdbFullRateString = "/10 IMDb"
+        static let hoursString = "ч"
+        static let minutesString = "мин"
+        static let errorString = "Error"
     }
 
     // MARK: - Private Visual Components
@@ -154,31 +155,60 @@ final class FilmViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Private property
-
-    private var filmInfo: Film?
-
     // MARK: - Public property
 
+    weak var coordinator: MainCoordinator?
     var filmIndex: Int?
+
+    // MARK: - Private property
+
+    private var filmViewModel: FilmViewModelProtocol?
+
+    // MARK: - Initializer
+
+    init(filmViewModel: FilmViewModelProtocol) {
+        self.filmViewModel = filmViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadFilmData()
+        filmViewModel?.loadFilmData()
+        updateTableView()
+        alertView()
+        makeImageView()
     }
 
     // MARK: - Private methods
 
-    private func loadFilmData() {
-        guard let index = filmIndex else { return }
-        Service.shared.loadFilm(index: index) { [weak self] result in
-            self?.filmInfo = result
+    private func updateTableView() {
+        filmViewModel?.updateViewData = {
+            guard let film = self.filmViewModel?.filmInfo else { return }
             DispatchQueue.main.async {
-                self?.navigationItem.title = result.title
-                self?.setupData(data: result)
+                self.setupData(data: film)
+            }
+        }
+    }
+
+    private func alertView() {
+        filmViewModel?.alertData = { alert in
+            DispatchQueue.main.async {
+                self.showErrorAlert(title: Constants.errorString, message: alert)
+            }
+        }
+    }
+
+    private func makeImageView() {
+        filmViewModel?.imageData = { imageData in
+            DispatchQueue.main.async {
+                self.filmImageView.image = UIImage(data: imageData)
             }
         }
     }
@@ -272,15 +302,16 @@ final class FilmViewController: UIViewController {
     }
 
     private func setupData(data: Film) {
-        filmImageView.loadImage(with: data.poster)
+        navigationItem.title = data.title
+        filmViewModel?.loadImage()
         titleLabel.attributedText = NSMutableAttributedString().normal("\(data.title) ")
             .normalGray("(\(data.release.prefix(4)))")
-        rateLabel.text = "\(data.rate)" + Constants.imdbFullRate
+        rateLabel.text = "\(data.rate)" + Constants.imdbFullRateString
         taglineLabel.text = "\(data.tagline)"
         descriptionLabel.text = data.overview
         genresLabel.text =
-            "\(data.genres.map(\.name).joined(separator: ", ")) \(Constants.dot) \((data.runtime) / 60)" +
-            " \(Constants.hours) \((data.runtime) % 60) \(Constants.minutes)"
+            "\(data.genres.map(\.name).joined(separator: ", ")) \(Constants.dotChar) \((data.runtime) / 60)" +
+            " \(Constants.hoursString) \((data.runtime) % 60) \(Constants.minutesString)"
     }
 
     @objc private func goWebViewAction() {

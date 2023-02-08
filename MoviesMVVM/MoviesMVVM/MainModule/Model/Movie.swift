@@ -1,11 +1,11 @@
-// FilmInfo.swift
+// Movie.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
 
 /// Массив с фильмами
 struct Result: Decodable {
-    let filmsInfo: [FilmInfo]
+    let filmsInfo: [Movie]
     let pageCount: Int
 
     enum CodingKeys: String, CodingKey {
@@ -15,7 +15,7 @@ struct Result: Decodable {
 }
 
 /// Модель фильма
-struct FilmInfo: Decodable {
+struct Movie: Decodable {
     let title: String
     let id: Int
     let overview: String
