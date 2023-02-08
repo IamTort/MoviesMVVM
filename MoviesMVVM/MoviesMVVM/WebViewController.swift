@@ -1,9 +1,6 @@
 // WebViewController.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © PozolotinaAA. All rights reserved.
 
-//
-//  Created by angelina on 27.10.2022.
-//
 import UIKit
 import WebKit
 
@@ -12,8 +9,7 @@ final class WebViewController: UIViewController {
     // MARK: - Private Enum
 
     private enum Constants {
-        static let urlShemeHostPath = "https://www.themoviedb.org/movie/"
-        static let urlFragment = "#play="
+        static let errorString = "Error"
     }
 
     // MARK: - Private Visual Components
@@ -26,19 +22,15 @@ final class WebViewController: UIViewController {
         return webView
     }()
 
-    // MARK: - Private property
-
-    private var filmInfo: [VideoId]?
-
     // MARK: - Public property
 
-    var filmIndex: Int?
+    var webViewModel: WebViewModelProtocol?
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadWebViewData()
+        webViewModel?.loadWebViewData()
         setupUI()
     }
 
@@ -48,23 +40,34 @@ final class WebViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(webView)
         createConstraints()
+        alertView()
+        dismissView()
+        loadWebView()
     }
 
-    private func loadWebViewData() {
-        guard let index = filmIndex else { return }
-        Service.shared.loadVideos(index: index) { [weak self] result in
-
-            guard result.count != 0,
-                  let url =
-                  URL(string: "\(Constants.urlShemeHostPath)\(index)\(Constants.urlFragment)\(result[0].key)")
-            else {
-                DispatchQueue.main.async {
-                    self?.dismiss(animated: true)
-                }
-                return
-            }
+    private func alertView() {
+        webViewModel?.alertData = { [weak self] alert in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self?.webView.load(URLRequest(url: url))
+                self.showErrorAlert(title: Constants.errorString, message: alert)
+            }
+        }
+    }
+
+    private func dismissView() {
+        webViewModel?.dismiss = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+            }
+        }
+    }
+
+    private func loadWebView() {
+        webViewModel?.loadWebView = { [weak self] url in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.webView.load(URLRequest(url: url))
             }
         }
     }

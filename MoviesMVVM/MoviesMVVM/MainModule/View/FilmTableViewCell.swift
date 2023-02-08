@@ -1,5 +1,5 @@
 // FilmTableViewCell.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © PozolotinaAA. All rights reserved.
 
 import UIKit
 
@@ -125,7 +125,7 @@ final class FilmTableViewCell: UITableViewCell {
         ])
     }
 
-    private func colorRateView(data: FilmInfo) {
+    private func colorRateView(data: Movie) {
         if data.rate >= 7 {
             rateView.backgroundColor = UIColor(named: Constants.green)
         } else {
@@ -135,7 +135,7 @@ final class FilmTableViewCell: UITableViewCell {
 
     // MARK: - Public methods
 
-    func setupData(data: FilmInfo) {
+    func setupData(data: Movie) {
         nameLabel.text = data.title
         descriptionLabel.text = data.overview
         rateLabel.text = "\(data.rate)"

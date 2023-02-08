@@ -7,14 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FABE050929918786006EEB88 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE050829918786006EEB88 /* MoviesViewModel.swift */; };
+		FABE050C29918FDB006EEB88 /* ImageAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE050B29918FDB006EEB88 /* ImageAPIService.swift */; };
+		FABE050E29919244006EEB88 /* ImageAPIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE050D29919244006EEB88 /* ImageAPIServiceProtocol.swift */; };
+		FABE051129919482006EEB88 /* ProxyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE051029919482006EEB88 /* ProxyProtocol.swift */; };
+		FABE0513299194A6006EEB88 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE0512299194A6006EEB88 /* Proxy.swift */; };
+		FABE0515299194F8006EEB88 /* FileManagerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE0514299194F8006EEB88 /* FileManagerServiceProtocol.swift */; };
+		FABE051729919518006EEB88 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE051629919518006EEB88 /* FileManagerService.swift */; };
+		FABE05192991955F006EEB88 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE05182991955F006EEB88 /* ImageService.swift */; };
+		FABE051B29919583006EEB88 /* ImageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE051A29919583006EEB88 /* ImageServiceProtocol.swift */; };
+		FABE051E29924E24006EEB88 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE051D29924E24006EEB88 /* AssemblyBuilder.swift */; };
+		FABE052129924F13006EEB88 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE052029924F13006EEB88 /* CoordinatorProtocol.swift */; };
+		FABE052329924F48006EEB88 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE052229924F48006EEB88 /* MainCoordinator.swift */; };
+		FABE052529925030006EEB88 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE052429925030006EEB88 /* Storyboarded.swift */; };
+		FABE052B29929C66006EEB88 /* AssemblyBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE052A29929C66006EEB88 /* AssemblyBuilderProtocol.swift */; };
+		FABE052D29929EB8006EEB88 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE052C29929EB8006EEB88 /* NetworkServiceProtocol.swift */; };
+		FABE05302992B1FC006EEB88 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE052F2992B1FC006EEB88 /* BaseCoordinator.swift */; };
+		FABE05322992B3E5006EEB88 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE05312992B3E5006EEB88 /* ApplicationCoordinator.swift */; };
+		FABE05342992B77E006EEB88 /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE05332992B77E006EEB88 /* FilmViewModel.swift */; };
+		FABE053629930789006EEB88 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE053529930789006EEB88 /* UIViewController+Extension.swift */; };
+		FABE053A29931945006EEB88 /* MoviesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE053929931945006EEB88 /* MoviesViewModelProtocol.swift */; };
+		FABE054029931E17006EEB88 /* FilmViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE053F29931E17006EEB88 /* FilmViewModelProtocol.swift */; };
+		FABE054229938864006EEB88 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE054129938864006EEB88 /* Result.swift */; };
+		FABE0544299388D8006EEB88 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE0543299388D8006EEB88 /* Genres.swift */; };
+		FABE05462993B9D8006EEB88 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE05452993B9D8006EEB88 /* Typealias.swift */; };
+		FABE05482993BBF8006EEB88 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE05472993BBF8006EEB88 /* WebViewModel.swift */; };
+		FABE054A2993CCCB006EEB88 /* WebViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE05492993CCCB006EEB88 /* WebViewModelProtocol.swift */; };
 		FAD4440C2906E5AF006E71AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440B2906E5AF006E71AF /* AppDelegate.swift */; };
 		FAD4440E2906E5AF006E71AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440D2906E5AF006E71AF /* SceneDelegate.swift */; };
 		FAD444102906E5AF006E71AF /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4440F2906E5AF006E71AF /* MoviesViewController.swift */; };
 		FAD444132906E5AF006E71AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD444112906E5AF006E71AF /* Main.storyboard */; };
 		FAD444152906E5B1006E71AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD444142906E5B1006E71AF /* Assets.xcassets */; };
 		FAD444182906E5B1006E71AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD444162906E5B1006E71AF /* LaunchScreen.storyboard */; };
-		FAD444232907234E006E71AF /* FilmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD444222907234E006E71AF /* FilmInfo.swift */; };
-		FAD4442529072486006E71AF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4442429072486006E71AF /* Service.swift */; };
+		FAD444232907234E006E71AF /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD444222907234E006E71AF /* Movie.swift */; };
+		FAD4442529072486006E71AF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4442429072486006E71AF /* NetworkService.swift */; };
 		FAD44429290735B3006E71AF /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD44428290735B3006E71AF /* FilmTableViewCell.swift */; };
 		FAD4442B2907C77C006E71AF /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4442A2907C77C006E71AF /* UIImageView + Extension.swift */; };
 		FAD4442D2909743E006E71AF /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4442C2909743E006E71AF /* FilmViewController.swift */; };
@@ -25,6 +51,32 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FABE050829918786006EEB88 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
+		FABE050B29918FDB006EEB88 /* ImageAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIService.swift; sourceTree = "<group>"; };
+		FABE050D29919244006EEB88 /* ImageAPIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIServiceProtocol.swift; sourceTree = "<group>"; };
+		FABE051029919482006EEB88 /* ProxyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyProtocol.swift; sourceTree = "<group>"; };
+		FABE0512299194A6006EEB88 /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		FABE0514299194F8006EEB88 /* FileManagerServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServiceProtocol.swift; sourceTree = "<group>"; };
+		FABE051629919518006EEB88 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		FABE05182991955F006EEB88 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		FABE051A29919583006EEB88 /* ImageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceProtocol.swift; sourceTree = "<group>"; };
+		FABE051D29924E24006EEB88 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
+		FABE052029924F13006EEB88 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		FABE052229924F48006EEB88 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		FABE052429925030006EEB88 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		FABE052A29929C66006EEB88 /* AssemblyBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilderProtocol.swift; sourceTree = "<group>"; };
+		FABE052C29929EB8006EEB88 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		FABE052F2992B1FC006EEB88 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		FABE05312992B3E5006EEB88 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		FABE05332992B77E006EEB88 /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
+		FABE053529930789006EEB88 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		FABE053929931945006EEB88 /* MoviesViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModelProtocol.swift; sourceTree = "<group>"; };
+		FABE053F29931E17006EEB88 /* FilmViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModelProtocol.swift; sourceTree = "<group>"; };
+		FABE054129938864006EEB88 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FABE0543299388D8006EEB88 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		FABE05452993B9D8006EEB88 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		FABE05472993BBF8006EEB88 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		FABE05492993CCCB006EEB88 /* WebViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModelProtocol.swift; sourceTree = "<group>"; };
 		FAD444082906E5AF006E71AF /* MoviesMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD4440B2906E5AF006E71AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD4440D2906E5AF006E71AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,8 +85,8 @@
 		FAD444142906E5B1006E71AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD444172906E5B1006E71AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD444192906E5B1006E71AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAD444222907234E006E71AF /* FilmInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfo.swift; sourceTree = "<group>"; };
-		FAD4442429072486006E71AF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		FAD444222907234E006E71AF /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		FAD4442429072486006E71AF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FAD44428290735B3006E71AF /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
 		FAD4442A2907C77C006E71AF /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		FAD4442C2909743E006E71AF /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +107,121 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FABE050629918023006EEB88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAD44428290735B3006E71AF /* FilmTableViewCell.swift */,
+				FAD4440F2906E5AF006E71AF /* MoviesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FABE050729918039006EEB88 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FABE050829918786006EEB88 /* MoviesViewModel.swift */,
+				FABE053829931930006EEB88 /* protocol */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FABE050A29918FCB006EEB88 /* ImageService */ = {
+			isa = PBXGroup;
+			children = (
+				FABE050F29919459006EEB88 /* protocol */,
+				FABE050B29918FDB006EEB88 /* ImageAPIService.swift */,
+				FABE0512299194A6006EEB88 /* Proxy.swift */,
+				FABE051629919518006EEB88 /* FileManagerService.swift */,
+				FABE05182991955F006EEB88 /* ImageService.swift */,
+			);
+			path = ImageService;
+			sourceTree = "<group>";
+		};
+		FABE050F29919459006EEB88 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				FABE050D29919244006EEB88 /* ImageAPIServiceProtocol.swift */,
+				FABE051A29919583006EEB88 /* ImageServiceProtocol.swift */,
+				FABE051029919482006EEB88 /* ProxyProtocol.swift */,
+				FABE0514299194F8006EEB88 /* FileManagerServiceProtocol.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		FABE051C29924DF8006EEB88 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				FABE051D29924E24006EEB88 /* AssemblyBuilder.swift */,
+				FABE052A29929C66006EEB88 /* AssemblyBuilderProtocol.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		FABE051F29924EF9006EEB88 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FABE052029924F13006EEB88 /* CoordinatorProtocol.swift */,
+				FABE052F2992B1FC006EEB88 /* BaseCoordinator.swift */,
+				FABE05312992B3E5006EEB88 /* ApplicationCoordinator.swift */,
+				FABE052229924F48006EEB88 /* MainCoordinator.swift */,
+				FABE052429925030006EEB88 /* Storyboarded.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FABE053729930CE9006EEB88 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				FAD44456290FB946006E71AF /* Model */,
+				FABE050629918023006EEB88 /* View */,
+				FABE050729918039006EEB88 /* ViewModel */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		FABE053829931930006EEB88 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				FABE053929931945006EEB88 /* MoviesViewModelProtocol.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		FABE053B29931BEB006EEB88 /* DetailModule */ = {
+			isa = PBXGroup;
+			children = (
+				FABE053D29931BFE006EEB88 /* ViewModel */,
+				FABE053C29931BF5006EEB88 /* View */,
+			);
+			path = DetailModule;
+			sourceTree = "<group>";
+		};
+		FABE053C29931BF5006EEB88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAD4442C2909743E006E71AF /* FilmViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FABE053D29931BFE006EEB88 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FABE05332992B77E006EEB88 /* FilmViewModel.swift */,
+				FABE053F29931E17006EEB88 /* FilmViewModelProtocol.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FABE053E29931C2B006EEB88 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				FABE052C29929EB8006EEB88 /* NetworkServiceProtocol.swift */,
+				FAD4442429072486006E71AF /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
 		FAD443FF2906E5AF006E71AF = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +247,15 @@
 				FAD444142906E5B1006E71AF /* Assets.xcassets */,
 				FAD444162906E5B1006E71AF /* LaunchScreen.storyboard */,
 				FAD444192906E5B1006E71AF /* Info.plist */,
-				FAD4440F2906E5AF006E71AF /* MoviesViewController.swift */,
-				FAD44428290735B3006E71AF /* FilmTableViewCell.swift */,
-				FAD4442C2909743E006E71AF /* FilmViewController.swift */,
 				FAD44430290B1407006E71AF /* WebViewController.swift */,
-				FAD4442429072486006E71AF /* Service.swift */,
-				FAD44456290FB946006E71AF /* Model */,
+				FABE05472993BBF8006EEB88 /* WebViewModel.swift */,
+				FABE05492993CCCB006EEB88 /* WebViewModelProtocol.swift */,
+				FABE053B29931BEB006EEB88 /* DetailModule */,
+				FABE053E29931C2B006EEB88 /* NetworkService */,
+				FABE053729930CE9006EEB88 /* MainModule */,
+				FABE050A29918FCB006EEB88 /* ImageService */,
+				FABE051F29924EF9006EEB88 /* Coordinator */,
+				FABE051C29924DF8006EEB88 /* Builder */,
 				FAD44457290FB984006E71AF /* Extension */,
 			);
 			path = MoviesMVVM;
@@ -94,8 +264,10 @@
 		FAD44456290FB946006E71AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FAD444222907234E006E71AF /* FilmInfo.swift */,
+				FAD444222907234E006E71AF /* Movie.swift */,
+				FABE054129938864006EEB88 /* Result.swift */,
 				FAD4442E290A9B55006E71AF /* Film.swift */,
+				FABE0543299388D8006EEB88 /* Genres.swift */,
 				FAD44432290B28E4006E71AF /* VideoId.swift */,
 			);
 			path = Model;
@@ -106,6 +278,8 @@
 			children = (
 				FAD44454290FB6B8006E71AF /* NSMutableAttributedString + Extension.swift */,
 				FAD4442A2907C77C006E71AF /* UIImageView + Extension.swift */,
+				FABE053529930789006EEB88 /* UIViewController+Extension.swift */,
+				FABE05452993B9D8006EEB88 /* Typealias.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -181,7 +355,8 @@
 /* Begin PBXShellScriptBuildPhase section */
 		FAD4441F2906E5DE006E71AF /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -193,14 +368,14 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		FAD444212906EA7E006E71AF /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -212,7 +387,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
@@ -224,17 +399,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD444102906E5AF006E71AF /* MoviesViewController.swift in Sources */,
-				FAD444232907234E006E71AF /* FilmInfo.swift in Sources */,
+				FABE052329924F48006EEB88 /* MainCoordinator.swift in Sources */,
+				FABE05342992B77E006EEB88 /* FilmViewModel.swift in Sources */,
+				FABE052529925030006EEB88 /* Storyboarded.swift in Sources */,
+				FAD444232907234E006E71AF /* Movie.swift in Sources */,
+				FABE051129919482006EEB88 /* ProxyProtocol.swift in Sources */,
+				FABE051B29919583006EEB88 /* ImageServiceProtocol.swift in Sources */,
+				FABE052D29929EB8006EEB88 /* NetworkServiceProtocol.swift in Sources */,
+				FABE050C29918FDB006EEB88 /* ImageAPIService.swift in Sources */,
 				FAD4442D2909743E006E71AF /* FilmViewController.swift in Sources */,
+				FABE05462993B9D8006EEB88 /* Typealias.swift in Sources */,
 				FAD44431290B1407006E71AF /* WebViewController.swift in Sources */,
+				FABE053629930789006EEB88 /* UIViewController+Extension.swift in Sources */,
 				FAD4442B2907C77C006E71AF /* UIImageView + Extension.swift in Sources */,
-				FAD4442529072486006E71AF /* Service.swift in Sources */,
+				FABE05482993BBF8006EEB88 /* WebViewModel.swift in Sources */,
+				FABE054A2993CCCB006EEB88 /* WebViewModelProtocol.swift in Sources */,
+				FAD4442529072486006E71AF /* NetworkService.swift in Sources */,
+				FABE054229938864006EEB88 /* Result.swift in Sources */,
+				FABE052B29929C66006EEB88 /* AssemblyBuilderProtocol.swift in Sources */,
+				FABE0544299388D8006EEB88 /* Genres.swift in Sources */,
+				FABE050E29919244006EEB88 /* ImageAPIServiceProtocol.swift in Sources */,
 				FAD44429290735B3006E71AF /* FilmTableViewCell.swift in Sources */,
+				FABE0515299194F8006EEB88 /* FileManagerServiceProtocol.swift in Sources */,
+				FABE050929918786006EEB88 /* MoviesViewModel.swift in Sources */,
+				FABE054029931E17006EEB88 /* FilmViewModelProtocol.swift in Sources */,
+				FABE053A29931945006EEB88 /* MoviesViewModelProtocol.swift in Sources */,
+				FABE051729919518006EEB88 /* FileManagerService.swift in Sources */,
+				FABE05192991955F006EEB88 /* ImageService.swift in Sources */,
+				FABE051E29924E24006EEB88 /* AssemblyBuilder.swift in Sources */,
 				FAD4440C2906E5AF006E71AF /* AppDelegate.swift in Sources */,
+				FABE052129924F13006EEB88 /* CoordinatorProtocol.swift in Sources */,
+				FABE0513299194A6006EEB88 /* Proxy.swift in Sources */,
+				FABE05302992B1FC006EEB88 /* BaseCoordinator.swift in Sources */,
 				FAD4442F290A9B55006E71AF /* Film.swift in Sources */,
 				FAD4440E2906E5AF006E71AF /* SceneDelegate.swift in Sources */,
 				FAD44455290FB6B8006E71AF /* NSMutableAttributedString + Extension.swift in Sources */,
 				FAD44433290B28E4006E71AF /* VideoId.swift in Sources */,
+				FABE05322992B3E5006EEB88 /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +587,6 @@
 				INFOPLIST_FILE = MoviesMVVM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -415,7 +615,6 @@
 				INFOPLIST_FILE = MoviesMVVM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;

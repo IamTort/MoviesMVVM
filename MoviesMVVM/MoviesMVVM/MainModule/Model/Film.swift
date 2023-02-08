@@ -1,18 +1,27 @@
 // Film.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © PozolotinaAA. All rights reserved.
 
 import Foundation
 
 /// Модель фильма
 struct Film: Decodable {
+    /// Идентификатор фильма
     let id: Int
+    /// Описание фильма
     let overview: String
+    /// Ссылка на постер фильма
     let poster: String
+    /// Девиз
     let tagline: String
+    /// Название фильма
     let title: String
+    /// Рейтинг фильма
     let rate: Double
+    /// Дата выпуска
     let release: String
+    /// Жанры фильма
     let genres: [Genres]
+    /// Длительность фильма
     let runtime: Int
 
     enum CodingKeys: String, CodingKey {
@@ -26,9 +35,4 @@ struct Film: Decodable {
         case rate = "vote_average"
         case release = "release_date"
     }
-}
-
-/// Модель жанров
-struct Genres: Decodable {
-    let name: String
 }
