@@ -13,7 +13,7 @@ final class WebViewModel: WebViewModelProtocol {
     }
 
     var filmIndex: Int?
-    let networkService = NetworkService()
+    let networkService = NetworkService(keychainService: KeychainService())
     var dismiss: VoidHandler?
     var loadWebView: ((URL) -> ())?
     var alertData: StringHandler?

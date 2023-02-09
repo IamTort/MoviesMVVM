@@ -1,6 +1,7 @@
 // UIViewController+Extension.swift
 // Copyright © PozolotinaAA. All rights reserved.
 
+import CoreData
 import UIKit
 
 /// Расширение для универсального алерта

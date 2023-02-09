@@ -106,13 +106,13 @@ final class MoviesViewController: UIViewController {
             }
         }
     }
-    
+
     private func bind() {
         moviesViewModel?.listStateHandler = { [weak self] state in
             guard let self = self else { return }
             self.movieListState = state
         }
-        
+
         moviesViewModel?.scrollViewData = { [weak self] in
             guard let self = self else { return }
             DispatchQueue.main.async {

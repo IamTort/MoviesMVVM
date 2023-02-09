@@ -2,6 +2,7 @@
 // Copyright © PozolotinaAA. All rights reserved.
 
 import Foundation
+import KeychainAccess
 
 /// Состояния экрана
 enum MoviesState {
@@ -38,34 +39,49 @@ final class MoviesViewModel: MoviesViewModelProtocol {
 
     // MARK: - Private property
 
+    private let coreDataService: CoreDataService
     private let networkService: NetworkServiceProtocol
     private let imageService: ImageServiceProtocol
     private var moviesPageInfo: Int?
     private var page = 1
     private var category = PurchaseEndPoint.popular
+    private var moviess: [Movie] = []
 
     // MARK: - Initializer
 
-    init(imageService: ImageServiceProtocol, networkService: NetworkServiceProtocol, coordinator: MainCoordinator) {
+    init(
+        imageService: ImageServiceProtocol,
+        networkService: NetworkServiceProtocol,
+        coordinator: MainCoordinator,
+        coreDataService: CoreDataService
+    ) {
         self.networkService = networkService
         self.imageService = imageService
         self.coordinator = coordinator
+        self.coreDataService = coreDataService
     }
 
     // MARK: - Public methods
 
     func fetchFilmsData() {
-        UserDefaults.standard.set(Constants.keyValue, forKey: Constants.key)
         listStateHandler?(.loading)
-        networkService.loadFilms(page: 1, api: PurchaseEndPoint.popular) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case let .success(result):
-                self.films = result.filmsInfo
-                self.moviesPageInfo = result.pageCount
-                self.listStateHandler?(.success)
-            case .failure:
-                self.listStateHandler?(.failure)
+        if let items = coreDataService.getAllMovies(category: category.rawValue),
+           !items.isEmpty
+        {
+            films = items
+            listStateHandler?(.success)
+        } else {
+            networkService.loadFilms(page: 1, api: PurchaseEndPoint.popular) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case let .success(result):
+                    self.films = result.filmsInfo
+                    self.coreDataService.saveMovies(category: self.category.rawValue, movies: result.filmsInfo)
+                    self.moviesPageInfo = result.pageCount
+                    self.listStateHandler?(.success)
+                case .failure:
+                    self.listStateHandler?(.failure)
+                }
             }
         }
     }
@@ -80,6 +96,7 @@ final class MoviesViewModel: MoviesViewModelProtocol {
             switch result {
             case let .success(result):
                 self.films += result.filmsInfo
+                self.coreDataService.saveMovies(category: self.category.rawValue, movies: result.filmsInfo)
                 self.listStateHandler?(.success)
             case .failure:
                 self.listStateHandler?(.failure)
@@ -106,16 +123,25 @@ final class MoviesViewModel: MoviesViewModelProtocol {
     }
 
     func fetchMoviesNewCategory(api: PurchaseEndPoint) {
-        networkService.loadFilms(page: 1, api: api) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case let .success(movies):
-                self.moviesPageInfo = movies.pageCount
-                self.films = movies.filmsInfo
-                self.scrollViewData?()
-                self.listStateHandler?(.success)
-            case .failure:
-                self.listStateHandler?(.failure)
+        if let items = coreDataService.getAllMovies(category: category.rawValue),
+           !items.isEmpty
+        {
+            films = items
+            scrollViewData?()
+            listStateHandler?(.success)
+        } else {
+            networkService.loadFilms(page: 1, api: api) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case let .success(movies):
+                    self.moviesPageInfo = movies.pageCount
+                    self.films = movies.filmsInfo
+                    self.coreDataService.saveMovies(category: self.category.rawValue, movies: movies.filmsInfo)
+                    self.scrollViewData?()
+                    self.listStateHandler?(.success)
+                case .failure:
+                    self.listStateHandler?(.failure)
+                }
             }
         }
     }

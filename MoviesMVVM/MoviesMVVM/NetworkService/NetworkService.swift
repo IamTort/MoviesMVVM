@@ -2,6 +2,7 @@
 // Copyright © PozolotinaAA. All rights reserved.
 
 import Foundation
+import KeychainAccess
 
 /// Типы запросов
 enum PurchaseEndPoint: String {
@@ -29,22 +30,25 @@ final class NetworkService: NetworkServiceProtocol {
 
     // MARK: - Private property
 
-    private let queryItemKey = URLQueryItem(
+    private lazy var queryItemKey = URLQueryItem(
         name: Constants.queryItemKeyName,
-        value: UserDefaults.standard.string(forKey: Constants.apiValueKeyName)
+        value: keychainService.getAPIKey(Constants.apiValueKeyName)
     )
-
     private let queryItemLanguage = URLQueryItem(
         name: Constants.queryItemLanguageName,
         value: Constants.queryItemLanguageValue
     )
 
     private var category = PurchaseEndPoint.popular
-
+    var keychainService: KeychainServiceProtocol
     private var session: URLSession = {
         let session = URLSession(configuration: .default)
         return session
     }()
+
+    init(keychainService: KeychainServiceProtocol) {
+        self.keychainService = keychainService
+    }
 
     // MARK: - Public methods
 
