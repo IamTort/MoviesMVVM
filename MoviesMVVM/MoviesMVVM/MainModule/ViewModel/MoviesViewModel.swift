@@ -45,7 +45,6 @@ final class MoviesViewModel: MoviesViewModelProtocol {
     private var moviesPageInfo: Int?
     private var page = 1
     private var category = PurchaseEndPoint.popular
-    private var moviess: [Movie] = []
 
     // MARK: - Initializer
 
@@ -69,6 +68,7 @@ final class MoviesViewModel: MoviesViewModelProtocol {
            !items.isEmpty
         {
             films = items
+            moviesPageInfo = 30000
             listStateHandler?(.success)
         } else {
             networkService.loadFilms(page: 1, api: PurchaseEndPoint.popular) { [weak self] result in

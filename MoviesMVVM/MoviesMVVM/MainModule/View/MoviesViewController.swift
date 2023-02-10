@@ -130,8 +130,6 @@ final class MoviesViewController: UIViewController {
         view.addSubview(segmentedControl)
         view.addSubview(activityIndicatorView)
         createConstraint()
-//        scrollTableView()
-//        updateView()
         bind()
     }
 
