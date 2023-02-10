@@ -158,7 +158,6 @@ final class FilmViewController: UIViewController {
     // MARK: - Public property
 
     weak var coordinator: MainCoordinator?
-//    var filmIndex: Int?
 
     // MARK: - Private property
 
