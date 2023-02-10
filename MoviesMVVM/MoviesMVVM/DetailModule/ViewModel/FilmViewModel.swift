@@ -31,6 +31,7 @@ final class FilmViewModel: FilmViewModelProtocol {
         self.imageService = imageService
         self.coreDataService = coreDataService
         self.filmIndex = filmIndex
+        returnError()
     }
 
     // MARK: - Public methods
@@ -65,6 +66,14 @@ final class FilmViewModel: FilmViewModelProtocol {
             case let .failure(error):
                 self.alertData?(error.localizedDescription)
             }
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    private func returnError() {
+        coreDataService.alertHandler = { [weak self] error in
+            self?.alertData?(error)
         }
     }
 }

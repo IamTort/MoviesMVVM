@@ -58,6 +58,7 @@ final class MoviesViewModel: MoviesViewModelProtocol {
         self.imageService = imageService
         self.coordinator = coordinator
         self.coreDataService = coreDataService
+        returnError()
     }
 
     // MARK: - Public methods
@@ -79,7 +80,8 @@ final class MoviesViewModel: MoviesViewModelProtocol {
                     self.coreDataService.saveMovies(category: self.category.rawValue, movies: result.filmsInfo)
                     self.moviesPageInfo = result.pageCount
                     self.listStateHandler?(.success)
-                case .failure:
+                case let .failure(error):
+                    self.alertData?(error.localizedDescription)
                     self.listStateHandler?(.failure)
                 }
             }
@@ -98,7 +100,8 @@ final class MoviesViewModel: MoviesViewModelProtocol {
                 self.films += result.filmsInfo
                 self.coreDataService.saveMovies(category: self.category.rawValue, movies: result.filmsInfo)
                 self.listStateHandler?(.success)
-            case .failure:
+            case let .failure(error):
+                self.alertData?(error.localizedDescription)
                 self.listStateHandler?(.failure)
             }
         }
@@ -139,7 +142,8 @@ final class MoviesViewModel: MoviesViewModelProtocol {
                     self.coreDataService.saveMovies(category: self.category.rawValue, movies: movies.filmsInfo)
                     self.scrollViewData?()
                     self.listStateHandler?(.success)
-                case .failure:
+                case let .failure(error):
+                    self.alertData?(error.localizedDescription)
                     self.listStateHandler?(.failure)
                 }
             }
@@ -148,5 +152,13 @@ final class MoviesViewModel: MoviesViewModelProtocol {
 
     func goFilmScreen(movie: Int) {
         toDescriptionModule?(movie)
+    }
+    
+    // MARK: - Private methods
+    
+    private func returnError() {
+        coreDataService.alertHandler = { [weak self] error in
+            self?.alertData?(error)
+        }
     }
 }

@@ -40,7 +40,7 @@ final class NetworkService: NetworkServiceProtocol {
     )
 
     private var category = PurchaseEndPoint.popular
-    var keychainService: KeychainServiceProtocol
+    private var keychainService: KeychainServiceProtocol
     private var session: URLSession = {
         let session = URLSession(configuration: .default)
         return session

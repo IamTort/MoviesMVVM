@@ -15,6 +15,10 @@ final class CoreDataService: CoreDataServiceProtocol {
         static let failSaveString = "Failed to save movie: "
         static let failRetrieveString = "Failed to retrieve movies:"
     }
+    
+    // MARK: - Public property
+    
+    var alertHandler: StringHandler?
 
     // MARK: - Private property
 
@@ -39,7 +43,7 @@ final class CoreDataService: CoreDataServiceProtocol {
             }
             try context.save()
         } catch {
-            print("\(Constants.failSaveString) \(error)")
+            alertHandler?("\(Constants.failSaveString) \(error.localizedDescription)")
         }
     }
 
@@ -58,10 +62,9 @@ final class CoreDataService: CoreDataServiceProtocol {
             object.releases = movie.release
             object.tagline = movie.tagline
             object.runtime = Int64(movie.runtime)
-
             try context.save()
         } catch {
-            print("\(Constants.failSaveString) \(error)")
+            alertHandler?("\(Constants.failSaveString) \(error.localizedDescription)")
         }
     }
 
@@ -83,7 +86,7 @@ final class CoreDataService: CoreDataServiceProtocol {
                 }
             }
         } catch {
-            print("\(Constants.failRetrieveString) \(error)")
+            alertHandler?("\(Constants.failRetrieveString) \(error.localizedDescription)")
         }
         return movies
     }
@@ -110,7 +113,7 @@ final class CoreDataService: CoreDataServiceProtocol {
                 }
             }
         } catch {
-            print("\(Constants.failRetrieveString) \(error)")
+            alertHandler?("\(Constants.failRetrieveString) \(error.localizedDescription)")
         }
         return nil
     }

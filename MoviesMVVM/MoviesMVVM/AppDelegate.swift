@@ -7,8 +7,31 @@ import UIKit
 /// AppDelegate
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
+    
+    // MARK: - Private Enum
 
+    private enum Constants {
+        static let modelNameString = "MovieEntity"
+        static let defaultConfigString = "Default Configuration"
+        static let errorString = "Unresolved error"
+    }
+    
+    // MARK: - Public property
+    
+    var window: UIWindow?
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: Constants.modelNameString)
+        container.loadPersistentStores(completionHandler: { storeDescription, error in
+            if let error = error as NSError? {
+                fatalError("\(Constants.errorString) \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+
+    // MARK: - Public methods
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -23,23 +46,13 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         configurationForConnecting connectingSceneSession: UISceneSession,
         options: UIScene.ConnectionOptions
     ) -> UISceneConfiguration {
-        UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        UISceneConfiguration(name: Constants.defaultConfigString, sessionRole: connectingSceneSession.role)
     }
 
     func application(
         _ application: UIApplication,
         didDiscardSceneSessions sceneSessionsSet: Set<UISceneSession>
     ) {}
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "MovieEntity")
-        container.loadPersistentStores(completionHandler: { storeDescription, error in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
 
     // MARK: - Core Data Saving support
 
@@ -50,7 +63,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 try context.save()
             } catch {
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                fatalError("\(Constants.errorString) \(nserror), \(nserror.userInfo)")
             }
         }
     }
