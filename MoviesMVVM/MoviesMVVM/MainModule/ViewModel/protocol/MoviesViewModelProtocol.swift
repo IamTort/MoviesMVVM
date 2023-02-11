@@ -12,8 +12,11 @@ protocol MoviesViewModelProtocol {
     var listStateHandler: ((MoviesState) -> ())? { get set }
     var coordinator: MainCoordinator? { get set }
     var alertData: StringHandler? { get set }
+    var keychainHandler: VoidHandler? { get set }
     func fetchFilmsData()
     func loadMore()
     func updateMoviesCategory(sender: Int)
     func goFilmScreen(movie: Int)
+    func setApiKey(_ key: String)
+    func getApiKey()
 }

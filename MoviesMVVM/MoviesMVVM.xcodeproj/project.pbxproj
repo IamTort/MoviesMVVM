@@ -50,7 +50,7 @@
 		FAD44429290735B3006E71AF /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD44428290735B3006E71AF /* FilmTableViewCell.swift */; };
 		FAD4442B2907C77C006E71AF /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4442A2907C77C006E71AF /* UIImageView + Extension.swift */; };
 		FAD4442D2909743E006E71AF /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4442C2909743E006E71AF /* FilmViewController.swift */; };
-		FAD4442F290A9B55006E71AF /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4442E290A9B55006E71AF /* Film.swift */; };
+		FAD4442F290A9B55006E71AF /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4442E290A9B55006E71AF /* MovieDetail.swift */; };
 		FAD44431290B1407006E71AF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD44430290B1407006E71AF /* WebViewController.swift */; };
 		FAD44433290B28E4006E71AF /* VideoId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD44432290B28E4006E71AF /* VideoId.swift */; };
 		FAD44455290FB6B8006E71AF /* NSMutableAttributedString + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD44454290FB6B8006E71AF /* NSMutableAttributedString + Extension.swift */; };
@@ -104,7 +104,7 @@
 		FAD44428290735B3006E71AF /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
 		FAD4442A2907C77C006E71AF /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		FAD4442C2909743E006E71AF /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
-		FAD4442E290A9B55006E71AF /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		FAD4442E290A9B55006E71AF /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		FAD44430290B1407006E71AF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		FAD44432290B28E4006E71AF /* VideoId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoId.swift; sourceTree = "<group>"; };
 		FAD44454290FB6B8006E71AF /* NSMutableAttributedString + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString + Extension.swift"; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 			children = (
 				FAD444222907234E006E71AF /* Movie.swift */,
 				FABE054129938864006EEB88 /* Result.swift */,
-				FAD4442E290A9B55006E71AF /* Film.swift */,
+				FAD4442E290A9B55006E71AF /* MovieDetail.swift */,
 				FABE0543299388D8006EEB88 /* Genres.swift */,
 				FAD44432290B28E4006E71AF /* VideoId.swift */,
 			);
@@ -522,7 +522,7 @@
 				FABE052129924F13006EEB88 /* CoordinatorProtocol.swift in Sources */,
 				FABE0513299194A6006EEB88 /* Proxy.swift in Sources */,
 				FABE05302992B1FC006EEB88 /* BaseCoordinator.swift in Sources */,
-				FAD4442F290A9B55006E71AF /* Film.swift in Sources */,
+				FAD4442F290A9B55006E71AF /* MovieDetail.swift in Sources */,
 				FABE0551299407A6006EEB88 /* MovieEntity.xcdatamodeld in Sources */,
 				FAD4440E2906E5AF006E71AF /* SceneDelegate.swift in Sources */,
 				FAD44455290FB6B8006E71AF /* NSMutableAttributedString + Extension.swift in Sources */,

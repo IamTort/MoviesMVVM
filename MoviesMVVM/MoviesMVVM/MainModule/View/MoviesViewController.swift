@@ -16,6 +16,8 @@ final class MoviesViewController: UIViewController {
         static let chevronRightImageName = "chevron.right"
         static let movies = "Фильмы"
         static let errorTitle = "Error"
+        static let apiKeyAlertTitle = "Введите ключ"
+        static let emptyString = ""
     }
 
     // MARK: - Private Visual Components
@@ -72,7 +74,7 @@ final class MoviesViewController: UIViewController {
             activityIndicatorView.isHidden = false
             activityIndicatorView.startAnimating()
             tableView.isHidden = true
-            moviesViewModel?.fetchFilmsData()
+            moviesViewModel?.getApiKey()
         case .loading:
             tableView.isHidden = true
         case .success:
@@ -87,6 +89,13 @@ final class MoviesViewController: UIViewController {
 
     // MARK: - Public method
 
+    func showApiKeyAlert() {
+        showApiKeyAlert(title: Constants.apiKeyAlertTitle, message: Constants.emptyString) { [weak self] key in
+            guard let self = self else { return }
+            self.moviesViewModel?.setApiKey(key)
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
@@ -106,7 +115,7 @@ final class MoviesViewController: UIViewController {
             }
         }
     }
-
+    
     private func bind() {
         moviesViewModel?.listStateHandler = { [weak self] state in
             guard let self = self else { return }
@@ -118,6 +127,10 @@ final class MoviesViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.setContentOffset(.zero, animated: true)
             }
+        }
+        
+        moviesViewModel?.keychainHandler = { [weak self] in
+            self?.showApiKeyAlert()
         }
     }
 

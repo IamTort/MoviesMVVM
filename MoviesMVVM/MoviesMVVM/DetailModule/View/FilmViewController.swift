@@ -21,6 +21,7 @@ final class FilmViewController: UIViewController {
         static let hoursString = "ч"
         static let minutesString = "мин"
         static let errorString = "Error"
+        static let minutesInt = 60
     }
 
     // MARK: - Private Visual Components
@@ -297,7 +298,7 @@ final class FilmViewController: UIViewController {
         ])
     }
 
-    private func setupData(data: Film) {
+    private func setupData(data: MovieDetail) {
         navigationItem.title = data.title
         filmViewModel?.loadImage()
         titleLabel.attributedText = NSMutableAttributedString().normal("\(data.title) ")
@@ -308,7 +309,7 @@ final class FilmViewController: UIViewController {
 
         genresLabel.text =
             "\((data.genres?.map(\.name).joined(separator: ", ")) ?? "") \(Constants.dotChar) \((data.runtime) / 60)" +
-            " \(Constants.hoursString) \((data.runtime) % 60) \(Constants.minutesString)"
+        " \(Constants.hoursString) \((data.runtime) % Constants.minutesInt) \(Constants.minutesString)"
     }
 
     @objc private func goWebViewAction() {

@@ -7,7 +7,7 @@ import Foundation
 protocol FilmViewModelProtocol {
     var updateViewData: VoidHandler? { get set }
     var alertData: StringHandler? { get set }
-    var filmInfo: Film? { get set }
+    var filmInfo: MovieDetail? { get set }
     var imageData: ((Data) -> ())? { get set }
     func loadFilmData()
     func loadImage()

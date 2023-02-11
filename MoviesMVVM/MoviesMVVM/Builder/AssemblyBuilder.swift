@@ -19,7 +19,8 @@ final class AssemblyBuilder: AssemblyBuilderProtocol {
             imageService: imageService,
             networkService: networkService,
             coordinator: coordinator,
-            coreDataService: coreDataService
+            coreDataService: coreDataService,
+            keychainService: keychainService
         )
         let view = MoviesViewController()
         view.moviesViewModel = moviesViewModel

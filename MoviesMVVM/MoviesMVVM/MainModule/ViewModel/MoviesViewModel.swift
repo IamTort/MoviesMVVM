@@ -35,11 +35,13 @@ final class MoviesViewModel: MoviesViewModelProtocol {
     var listStateHandler: ((MoviesState) -> ())?
     var alertData: StringHandler?
     var toDescriptionModule: IntHandler?
+    var keychainHandler: VoidHandler?
     var films: [Movie] = []
 
     // MARK: - Private property
 
-    private let coreDataService: CoreDataService
+    private var keychainService: KeychainServiceProtocol
+    private var coreDataService: CoreDataServiceProtocol
     private let networkService: NetworkServiceProtocol
     private let imageService: ImageServiceProtocol
     private var moviesPageInfo: Int?
@@ -52,17 +54,19 @@ final class MoviesViewModel: MoviesViewModelProtocol {
         imageService: ImageServiceProtocol,
         networkService: NetworkServiceProtocol,
         coordinator: MainCoordinator,
-        coreDataService: CoreDataService
+        coreDataService: CoreDataServiceProtocol,
+        keychainService: KeychainServiceProtocol
     ) {
         self.networkService = networkService
         self.imageService = imageService
         self.coordinator = coordinator
         self.coreDataService = coreDataService
+        self.keychainService = keychainService
         returnError()
     }
 
     // MARK: - Public methods
-
+    
     func fetchFilmsData() {
         listStateHandler?(.loading)
         if let items = coreDataService.getAllMovies(category: category.rawValue),
@@ -152,6 +156,19 @@ final class MoviesViewModel: MoviesViewModelProtocol {
 
     func goFilmScreen(movie: Int) {
         toDescriptionModule?(movie)
+    }
+    
+    func setApiKey(_ key: String) {
+        keychainService.setAPIKey(key, forKey: Constants.key)
+        fetchFilmsData()
+    }
+    
+    func getApiKey() {
+        if !keychainService.getAPIKey(Constants.key).isEmpty {
+            fetchFilmsData()
+        } else {
+            keychainHandler?()
+        }
     }
     
     // MARK: - Private methods

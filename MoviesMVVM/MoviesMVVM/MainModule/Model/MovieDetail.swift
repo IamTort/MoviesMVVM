@@ -4,7 +4,7 @@
 import Foundation
 
 /// Модель фильма
-struct Film: Decodable {
+struct MovieDetail: Decodable {
     /// Идентификатор фильма
     let id: Int
     /// Описание фильма

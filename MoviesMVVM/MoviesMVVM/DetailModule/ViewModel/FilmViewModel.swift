@@ -8,14 +8,14 @@ final class FilmViewModel: FilmViewModelProtocol {
     // MARK: - Public property
 
     var filmIndex: Int?
-    var filmInfo: Film?
+    var filmInfo: MovieDetail?
     var updateViewData: VoidHandler?
     var imageData: DataHandler?
     var alertData: StringHandler?
 
     // MARK: - Private property
 
-    private let coreDataService: CoreDataService
+    private var coreDataService: CoreDataServiceProtocol
     private let networkService: NetworkServiceProtocol
     private let imageService: ImageServiceProtocol
 
@@ -24,7 +24,7 @@ final class FilmViewModel: FilmViewModelProtocol {
     init(
         imageService: ImageServiceProtocol,
         networkService: NetworkServiceProtocol,
-        coreDataService: CoreDataService,
+        coreDataService: CoreDataServiceProtocol,
         filmIndex: Int?
     ) {
         self.networkService = networkService

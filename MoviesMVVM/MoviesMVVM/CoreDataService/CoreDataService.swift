@@ -47,7 +47,7 @@ final class CoreDataService: CoreDataServiceProtocol {
         }
     }
 
-    func saveMovie(movie: Film) {
+    func saveMovie(movie: MovieDetail) {
         context?.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         guard let context = context,
               let entity = NSEntityDescription.entity(forEntityName: Constants.movieDetailObjectString, in: context)
@@ -91,14 +91,14 @@ final class CoreDataService: CoreDataServiceProtocol {
         return movies
     }
 
-    func getMovie(id: Int) -> Film? {
+    func getMovie(id: Int) -> MovieDetail? {
         let fetch = MovieDetailObject.fetchRequest()
-        var movie: Film
+        var movie: MovieDetail
         do {
             guard let movieEntities = try context?.fetch(fetch) else { return nil }
             for movieEntity in movieEntities {
                 if movieEntity.id == id {
-                    movie = Film(
+                    movie = MovieDetail(
                         id: Int(movieEntity.id),
                         overview: movieEntity.overview ?? Constants.emptyString,
                         poster: movieEntity.poster ?? Constants.emptyString,

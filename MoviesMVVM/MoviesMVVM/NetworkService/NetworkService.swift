@@ -70,7 +70,7 @@ final class NetworkService: NetworkServiceProtocol {
         loadObject(urlComponents: components, completion: completion)
     }
 
-    func loadFilm(index: Int, completion: @escaping (Swift.Result<Film, Error>) -> Void) {
+    func loadFilm(index: Int, completion: @escaping (Swift.Result<MovieDetail, Error>) -> Void) {
         var components = URLComponents()
         components.scheme = Constants.componentScheme
         components.host = Constants.componentsHost
