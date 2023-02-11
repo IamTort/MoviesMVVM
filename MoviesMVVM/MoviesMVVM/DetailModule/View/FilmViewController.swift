@@ -21,6 +21,7 @@ final class FilmViewController: UIViewController {
         static let hoursString = "ч"
         static let minutesString = "мин"
         static let errorString = "Error"
+        static let minutesInt = 60
     }
 
     // MARK: - Private Visual Components
@@ -158,7 +159,6 @@ final class FilmViewController: UIViewController {
     // MARK: - Public property
 
     weak var coordinator: MainCoordinator?
-//    var filmIndex: Int?
 
     // MARK: - Private property
 
@@ -179,9 +179,9 @@ final class FilmViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         setupUI()
         filmViewModel?.loadFilmData()
-        bind()
     }
 
     // MARK: - Private methods
@@ -194,14 +194,14 @@ final class FilmViewController: UIViewController {
                 self.setupData(data: film)
             }
         }
-   
+
         filmViewModel?.alertData = { [weak self] alert in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.showErrorAlert(title: Constants.errorString, message: alert)
             }
         }
-    
+
         filmViewModel?.imageData = { [weak self] imageData in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -298,7 +298,7 @@ final class FilmViewController: UIViewController {
         ])
     }
 
-    private func setupData(data: Film) {
+    private func setupData(data: MovieDetail) {
         navigationItem.title = data.title
         filmViewModel?.loadImage()
         titleLabel.attributedText = NSMutableAttributedString().normal("\(data.title) ")
@@ -306,14 +306,15 @@ final class FilmViewController: UIViewController {
         rateLabel.text = "\(data.rate)" + Constants.imdbFullRateString
         taglineLabel.text = "\(data.tagline)"
         descriptionLabel.text = data.overview
+
         genresLabel.text =
-            "\(data.genres.map(\.name).joined(separator: ", ")) \(Constants.dotChar) \((data.runtime) / 60)" +
-            " \(Constants.hoursString) \((data.runtime) % 60) \(Constants.minutesString)"
+            "\((data.genres?.map(\.name).joined(separator: ", ")) ?? "") \(Constants.dotChar) \((data.runtime) / 60)" +
+        " \(Constants.hoursString) \((data.runtime) % Constants.minutesInt) \(Constants.minutesString)"
     }
 
     @objc private func goWebViewAction() {
         let fvc = WebViewController()
-        fvc.webViewModel = WebViewModel() as? WebViewModelProtocol
+        fvc.webViewModel = WebViewModel()
         fvc.webViewModel?.filmIndex = filmViewModel?.filmInfo?.id
         present(fvc, animated: true)
     }

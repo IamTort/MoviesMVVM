@@ -4,7 +4,7 @@
 import Foundation
 
 /// Модель фильма
-struct Film: Decodable {
+struct MovieDetail: Decodable {
     /// Идентификатор фильма
     let id: Int
     /// Описание фильма
@@ -20,7 +20,7 @@ struct Film: Decodable {
     /// Дата выпуска
     let release: String
     /// Жанры фильма
-    let genres: [Genres]
+    let genres: [Genres]?
     /// Длительность фильма
     let runtime: Int
 

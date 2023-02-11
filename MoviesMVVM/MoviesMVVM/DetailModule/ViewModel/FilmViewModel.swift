@@ -7,34 +7,51 @@ import Foundation
 final class FilmViewModel: FilmViewModelProtocol {
     // MARK: - Public property
 
-    private let networkService: NetworkServiceProtocol
-    private let imageService: ImageServiceProtocol
     var filmIndex: Int?
-    var filmInfo: Film?
+    var filmInfo: MovieDetail?
     var updateViewData: VoidHandler?
     var imageData: DataHandler?
     var alertData: StringHandler?
 
+    // MARK: - Private property
+
+    private var coreDataService: CoreDataServiceProtocol
+    private let networkService: NetworkServiceProtocol
+    private let imageService: ImageServiceProtocol
+
     // MARK: - Initializer
 
-    init(imageService: ImageServiceProtocol, networkService: NetworkServiceProtocol, filmIndex: Int?) {
+    init(
+        imageService: ImageServiceProtocol,
+        networkService: NetworkServiceProtocol,
+        coreDataService: CoreDataServiceProtocol,
+        filmIndex: Int?
+    ) {
         self.networkService = networkService
         self.imageService = imageService
+        self.coreDataService = coreDataService
         self.filmIndex = filmIndex
+        returnError()
     }
 
     // MARK: - Public methods
 
     func loadFilmData() {
         guard let index = filmIndex else { return }
-        networkService.loadFilm(index: index) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case let .success(movie):
-                self.filmInfo = movie
-                self.updateViewData?()
-            case let .failure(error):
-                self.alertData?(error.localizedDescription)
+        if let item = coreDataService.getMovie(id: index) {
+            filmInfo = item
+            updateViewData?()
+        } else {
+            networkService.loadFilm(index: index) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case let .success(movie):
+                    self.filmInfo = movie
+                    self.coreDataService.saveMovie(movie: movie)
+                    self.updateViewData?()
+                case let .failure(error):
+                    self.alertData?(error.localizedDescription)
+                }
             }
         }
     }
@@ -49,6 +66,14 @@ final class FilmViewModel: FilmViewModelProtocol {
             case let .failure(error):
                 self.alertData?(error.localizedDescription)
             }
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    private func returnError() {
+        coreDataService.alertHandler = { [weak self] error in
+            self?.alertData?(error)
         }
     }
 }
