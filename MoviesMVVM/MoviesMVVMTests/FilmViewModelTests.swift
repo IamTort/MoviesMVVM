@@ -17,6 +17,7 @@ final class FilmViewModelTests: XCTestCase {
     // MARK: - Public methods
 
     override func setUp() {
+        super.setUp()
         filmViewModel = FilmViewModel(
             imageService: imageServiceMock,
             networkService: networkServiceMock,
@@ -26,6 +27,7 @@ final class FilmViewModelTests: XCTestCase {
     }
 
     override func tearDown() {
+        super.tearDown()
         filmViewModel = nil
     }
 

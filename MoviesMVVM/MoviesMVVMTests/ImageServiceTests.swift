@@ -18,6 +18,7 @@ final class ImageServiceTests: XCTestCase {
     // MARK: - Public methods
 
     override func setUp() {
+        super.setUp()
         mockProxy = MockProxy()
         guard let mockProxy = mockProxy else {
             return
@@ -26,6 +27,7 @@ final class ImageServiceTests: XCTestCase {
     }
 
     override func tearDown() {
+        super.tearDown()
         imageService = nil
         mockProxy = nil
     }
