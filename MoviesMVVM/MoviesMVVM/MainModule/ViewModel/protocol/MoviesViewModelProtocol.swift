@@ -12,7 +12,6 @@ protocol MoviesViewModelProtocol {
     var updateViewData: (() -> ())? { get set }
     var scrollViewData: (() -> ())? { get set }
     var listStateHandler: ((MoviesState) -> ())? { get set }
-    var coordinator: MainCoordinatorProtocol? { get set }
     var alertData: StringHandler? { get set }
     var keychainHandler: VoidHandler? { get set }
     func fetchFilmsData()

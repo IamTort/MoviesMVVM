@@ -29,7 +29,6 @@ final class MoviesViewModel: MoviesViewModelProtocol {
 
     // MARK: - Public property
 
-    var coordinator: MainCoordinatorProtocol?
     var updateViewData: VoidHandler?
     var scrollViewData: VoidHandler?
     var listStateHandler: ((MoviesState) -> ())?
@@ -53,13 +52,11 @@ final class MoviesViewModel: MoviesViewModelProtocol {
     init(
         imageService: ImageServiceProtocol,
         networkService: NetworkServiceProtocol,
-        coordinator: MainCoordinatorProtocol,
         coreDataService: CoreDataServiceProtocol,
         keychainService: KeychainServiceProtocol
     ) {
         self.networkService = networkService
         self.imageService = imageService
-        self.coordinator = coordinator
         self.coreDataService = coreDataService
         self.keychainService = keychainService
         returnError()

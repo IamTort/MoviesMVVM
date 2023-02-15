@@ -18,7 +18,6 @@ final class MoviesViewModelTests: XCTestCase {
     private var moviesViewModel: MoviesViewModel?
     private var imageServiceMock = ImageServiceMock()
     private var networkServiceMock = NetworkServiceMock()
-    private var coordinatorMock = CoordinatorMock()
     private var coreDataServiceMock = CoreDataServiceMock()
     private var keychainServiceMock = KeychainServiceMock()
 
@@ -29,7 +28,6 @@ final class MoviesViewModelTests: XCTestCase {
         moviesViewModel = MoviesViewModel(
             imageService: imageServiceMock,
             networkService: networkServiceMock,
-            coordinator: coordinatorMock,
             coreDataService: coreDataServiceMock,
             keychainService: keychainServiceMock
         )

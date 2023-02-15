@@ -3,6 +3,7 @@
 
 import Foundation
 
+/// Протокол главного координатора
 protocol MainCoordinatorProtocol {
     func showMoviesModule()
     func goFilmDetail(filmIndex: Int)

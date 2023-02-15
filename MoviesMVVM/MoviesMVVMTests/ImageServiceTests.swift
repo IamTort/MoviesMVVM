@@ -6,14 +6,12 @@ import XCTest
 
 /// Тестирование сервиса по загрузке картинок
 final class ImageServiceTests: XCTestCase {
-    // MARK: - Public property
-
-    var imageService: ImageService?
-    var mockProxy: MockProxy?
-
+    
     // MARK: - Private property
 
     private let mockUrl = "url"
+    private var imageService: ImageService?
+    private var mockProxy: MockProxy?
 
     // MARK: - Public methods
 
