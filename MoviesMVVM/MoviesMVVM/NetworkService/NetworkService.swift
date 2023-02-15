@@ -52,11 +52,11 @@ final class NetworkService: NetworkServiceProtocol {
 
     // MARK: - Public methods
 
-    func loadFilms(page: Int, completion: @escaping (Swift.Result<Result, Error>) -> Void) {
+    func loadFilms(page: Int, completion: @escaping (Swift.Result<Results, Error>) -> Void) {
         loadFilms(page: page, api: category, completion: completion)
     }
 
-    func loadFilms(page: Int, api: PurchaseEndPoint, completion: @escaping (Swift.Result<Result, Error>) -> Void) {
+    func loadFilms(page: Int, api: PurchaseEndPoint, completion: @escaping (Swift.Result<Results, Error>) -> Void) {
         category = api
 
         let queryItemPage = URLQueryItem(name: Constants.queryItemPageName, value: "\(page)")

@@ -18,7 +18,6 @@ final class AssemblyBuilder: AssemblyBuilderProtocol {
         let moviesViewModel = MoviesViewModel(
             imageService: imageService,
             networkService: networkService,
-            coordinator: coordinator,
             coreDataService: coreDataService,
             keychainService: keychainService
         )

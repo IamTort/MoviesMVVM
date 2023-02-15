@@ -7,7 +7,6 @@ import UIKit
 /// AppDelegate
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     // MARK: - Private Enum
 
     private enum Constants {
@@ -15,11 +14,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         static let defaultConfigString = "Default Configuration"
         static let errorString = "Unresolved error"
     }
-    
+
     // MARK: - Public property
-    
+
     var window: UIWindow?
-    
+
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: Constants.modelNameString)
         container.loadPersistentStores(completionHandler: { storeDescription, error in
@@ -31,7 +30,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     // MARK: - Public methods
-    
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?

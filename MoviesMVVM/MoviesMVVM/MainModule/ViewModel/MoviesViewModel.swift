@@ -29,7 +29,6 @@ final class MoviesViewModel: MoviesViewModelProtocol {
 
     // MARK: - Public property
 
-    var coordinator: MainCoordinator?
     var updateViewData: VoidHandler?
     var scrollViewData: VoidHandler?
     var listStateHandler: ((MoviesState) -> ())?
@@ -37,6 +36,8 @@ final class MoviesViewModel: MoviesViewModelProtocol {
     var toDescriptionModule: IntHandler?
     var keychainHandler: VoidHandler?
     var films: [Movie] = []
+    var category = PurchaseEndPoint.popular
+    var moviesPageInfo: Int?
 
     // MARK: - Private property
 
@@ -44,29 +45,25 @@ final class MoviesViewModel: MoviesViewModelProtocol {
     private var coreDataService: CoreDataServiceProtocol
     private let networkService: NetworkServiceProtocol
     private let imageService: ImageServiceProtocol
-    private var moviesPageInfo: Int?
     private var page = 1
-    private var category = PurchaseEndPoint.popular
 
     // MARK: - Initializer
 
     init(
         imageService: ImageServiceProtocol,
         networkService: NetworkServiceProtocol,
-        coordinator: MainCoordinator,
         coreDataService: CoreDataServiceProtocol,
         keychainService: KeychainServiceProtocol
     ) {
         self.networkService = networkService
         self.imageService = imageService
-        self.coordinator = coordinator
         self.coreDataService = coreDataService
         self.keychainService = keychainService
         returnError()
     }
 
     // MARK: - Public methods
-    
+
     func fetchFilmsData() {
         listStateHandler?(.loading)
         if let items = coreDataService.getAllMovies(category: category.rawValue),
@@ -157,12 +154,12 @@ final class MoviesViewModel: MoviesViewModelProtocol {
     func goFilmScreen(movie: Int) {
         toDescriptionModule?(movie)
     }
-    
+
     func setApiKey(_ key: String) {
         keychainService.setAPIKey(key, forKey: Constants.key)
         fetchFilmsData()
     }
-    
+
     func getApiKey() {
         if !keychainService.getAPIKey(Constants.key).isEmpty {
             fetchFilmsData()
@@ -170,9 +167,9 @@ final class MoviesViewModel: MoviesViewModelProtocol {
             keychainHandler?()
         }
     }
-    
+
     // MARK: - Private methods
-    
+
     private func returnError() {
         coreDataService.alertHandler = { [weak self] error in
             self?.alertData?(error)

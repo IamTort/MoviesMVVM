@@ -95,7 +95,7 @@ final class MoviesViewController: UIViewController {
             self.moviesViewModel?.setApiKey(key)
         }
     }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
@@ -115,7 +115,7 @@ final class MoviesViewController: UIViewController {
             }
         }
     }
-    
+
     private func bind() {
         moviesViewModel?.listStateHandler = { [weak self] state in
             guard let self = self else { return }
@@ -128,7 +128,7 @@ final class MoviesViewController: UIViewController {
                 self.tableView.setContentOffset(.zero, animated: true)
             }
         }
-        
+
         moviesViewModel?.keychainHandler = { [weak self] in
             self?.showApiKeyAlert()
         }

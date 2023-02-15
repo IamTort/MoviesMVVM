@@ -2,8 +2,8 @@
 // Copyright © PozolotinaAA. All rights reserved.
 
 import CoreData
-import UIKit
 import KeychainAccess
+import UIKit
 
 /// Расширение для универсального алерта
 extension UIViewController {
@@ -26,7 +26,7 @@ extension UIViewController {
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func showApiKeyAlert(title: String, message: String, handler: StringHandler?) {
         let alertController = UIAlertController(
             title: title,

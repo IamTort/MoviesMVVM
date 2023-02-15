@@ -1,10 +1,10 @@
-// Result.swift
+// Results.swift
 // Copyright © PozolotinaAA. All rights reserved.
 
 import Foundation
 
 /// Массив с фильмами
-struct Result: Decodable {
+struct Results: Decodable {
     /// Фильмы
     let filmsInfo: [Movie]
     /// Количество страниц

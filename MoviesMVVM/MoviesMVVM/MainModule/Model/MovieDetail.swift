@@ -1,4 +1,4 @@
-// Film.swift
+// MovieDetail.swift
 // Copyright © PozolotinaAA. All rights reserved.
 
 import Foundation
