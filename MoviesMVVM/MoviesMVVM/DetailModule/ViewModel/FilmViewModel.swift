@@ -68,9 +68,9 @@ final class FilmViewModel: FilmViewModelProtocol {
             }
         }
     }
-    
+
     // MARK: - Private methods
-    
+
     private func returnError() {
         coreDataService.alertHandler = { [weak self] error in
             self?.alertData?(error)

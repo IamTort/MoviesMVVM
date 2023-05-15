@@ -15,9 +15,9 @@ final class CoreDataService: CoreDataServiceProtocol {
         static let failSaveString = "Failed to save movie: "
         static let failRetrieveString = "Failed to retrieve movies:"
     }
-    
+
     // MARK: - Public property
-    
+
     var alertHandler: StringHandler?
 
     // MARK: - Private property

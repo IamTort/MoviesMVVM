@@ -4,7 +4,7 @@
 import UIKit
 
 /// Координатор экрана фильмов
-final class MainCoordinator: BaseCoordinator {
+final class MainCoordinator: BaseCoordinator, MainCoordinatorProtocol {
     // MARK: - Public property
 
     var builder: AssemblyBuilderProtocol?

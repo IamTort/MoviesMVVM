@@ -309,7 +309,7 @@ final class FilmViewController: UIViewController {
 
         genresLabel.text =
             "\((data.genres?.map(\.name).joined(separator: ", ")) ?? "") \(Constants.dotChar) \((data.runtime) / 60)" +
-        " \(Constants.hoursString) \((data.runtime) % Constants.minutesInt) \(Constants.minutesString)"
+            " \(Constants.hoursString) \((data.runtime) % Constants.minutesInt) \(Constants.minutesString)"
     }
 
     @objc private func goWebViewAction() {
